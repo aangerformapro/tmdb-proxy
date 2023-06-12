@@ -4,7 +4,7 @@ import cors from "cors";
 
 import env from "./src/utils/env.js";
 import { rateLimit } from "express-rate-limit";
-import routes from "./src/routes/index.js";
+import api from "./src/routes/api.js";
 
 
 
@@ -20,7 +20,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api", routes);
+
+
+
+app.use("/3", api);
 
 app.all("*", (request, response, next) =>
 {

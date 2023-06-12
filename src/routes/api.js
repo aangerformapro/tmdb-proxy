@@ -8,7 +8,8 @@ const router = express.Router();
 export default router;
 
 
-router.all('/*', apicache.middleware("2 minutes"), async (req, res, next) =>
+
+router.all('/*', apicache.middleware("15 minutes"), async (req, res, next) =>
 {
 
     try
@@ -34,7 +35,7 @@ router.all('/*', apicache.middleware("2 minutes"), async (req, res, next) =>
         }
         const resp = await axios.request(path, {
             method,
-            baseURL: env.baseUrl,
+            baseURL: env.baseUrl + '/3',
             headers,
             params,
         });
