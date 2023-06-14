@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon --config nodemon.json"
+    "dev": "nodemon --config nodemon.json",
+    "dev:debug": "set DEBUG=express:* & nodemon --config nodemon.json"
   },
   "author": "Aymeric Anger",
   "license": "MIT",
@@ -15,9 +16,9 @@
     "axios": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.1.4",
+    "express-asset-file-cache-middleware": "^1.3.0",
     "express-rate-limit": "^6.7.0",
-    "helmet": "^7.0.0",
-    "http-proxy-middleware": "^2.0.6"
+    "helmet": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"

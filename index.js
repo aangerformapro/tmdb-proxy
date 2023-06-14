@@ -5,7 +5,7 @@ import cors from "cors";
 import env from "./src/utils/env.js";
 import { rateLimit } from "express-rate-limit";
 import api from "./src/routes/api.js";
-
+import images from "./src/routes/images.js";
 
 
 const app = express();
@@ -23,6 +23,8 @@ app.use(cors());
 
 
 
+
+app.use(/\/[pt]/, images);
 app.use("/3", api);
 
 app.all("*", (request, response, next) =>
