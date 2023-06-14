@@ -31,7 +31,8 @@ router.all('/*', apicache.middleware("15 minutes"), async (req, res, next) =>
 
         if (env.token && !params.api_key)
         {
-            headers.Authorization = env.token;
+
+            headers.Authorization = env.token.startsWith('Bearer ') ? env.token : 'Bearer ' + env.token;
         }
         const resp = await axios.request(path, {
             method,
